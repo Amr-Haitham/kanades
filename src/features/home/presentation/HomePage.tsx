@@ -12,7 +12,7 @@ interface HomePageProps {
 const HomePage: React.FC<HomePageProps> = ({ onAddToCart }) => {
     return (
         <div className="space-y-20 pb-20 pt-10" dir="rtl">
-            {/* Hero Section - BACK AT THE TOP */}
+            {/* Hero Section */}
             <section className="relative h-[60vh] md:h-[70vh] flex items-center overflow-hidden bg-accent-brown rounded-[40px] mx-4 shadow-2xl">
                 <div className="absolute inset-0 z-0 text-right">
                     <img
@@ -22,7 +22,7 @@ const HomePage: React.FC<HomePageProps> = ({ onAddToCart }) => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-l from-accent-brown via-accent-brown/20 to-transparent"></div>
 
-                    {/* Decorative Beaver Team - Positioned as in the image */}
+                    {/* Decorative Beaver Team */}
                     <div className="absolute top-1/2 left-8 md:left-20 -translate-y-1/2 w-[220px] md:w-[380px] z-10 animate-float pointer-events-none">
                         <img src="/beavers/Image.png" alt="Beaver team" className="w-full h-auto drop-shadow-2xl" />
                     </div>
@@ -51,16 +51,16 @@ const HomePage: React.FC<HomePageProps> = ({ onAddToCart }) => {
             <section className="container mx-auto px-4 relative">
                 <div className="flex flex-col items-center mb-16 text-center">
                     <div className="relative inline-block mb-4">
-                        {/* Peeking Beaver */}
-                        <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 z-10 pointer-events-none">
-                            <img src="/beavers/Image-5.png" alt="Peeking beaver" className="w-full h-auto drop-shadow-md" />
+                        {/* Standardized Peeking Beaver (Holding the title) */}
+                        <div className="absolute -top-[20px] left-1/2 -translate-x-1/2 w-28 h-28 z-10 pointer-events-none">
+                            <img src="/beavers/Image-3.png" alt="Peeking beaver" className="w-full h-auto drop-shadow-md" />
                         </div>
 
                         {/* Pill Box Title */}
                         <div className="bg-[#F9E6E2] dark:bg-zinc-800/80 px-12 py-4 rounded-[32px] shadow-sm border border-white/20 relative z-0 mt-8">
-                            <h2 className="text-3xl md:text-4xl font-black text-accent-brown dark:text-white flex items-center gap-2">
-                                <span>إبداعات</span>
-                                <span className="text-primary italic">مميزة</span>
+                            <h2 className="text-3xl md:text-4xl font-black text-primary dark:text-white flex items-center gap-2">
+                                <span className="text-accent-brown dark:text-primary">إبداعات</span>
+                                <span>مميزة</span>
                             </h2>
                         </div>
 
@@ -68,7 +68,7 @@ const HomePage: React.FC<HomePageProps> = ({ onAddToCart }) => {
                         <div className="absolute -right-32 top-0 w-32 hidden lg:block">
                             <img src="/beavers/Image-9.png" alt="Crafting beaver" className="w-full h-auto" />
                         </div>
-                        <div className="absolute -left-32 top-0 w-24 hidden lg:block opacity-60">
+                        <div className="absolute -left-32 top-0 w-32 hidden lg:block">
                             <img src="/beavers/Image-13.png" alt="Artist beaver" className="w-full h-auto scale-x-[-1]" />
                         </div>
                     </div>
@@ -95,14 +95,23 @@ const HomePage: React.FC<HomePageProps> = ({ onAddToCart }) => {
                     <div className="flex flex-col md:flex-row items-center justify-between gap-12 mb-20">
                         <div className="text-right flex-1">
                             <div className="relative inline-block mb-6">
-                                <div className="absolute -top-12 right-6 w-24 h-24 z-10 pointer-events-none">
-                                    <img src="/beavers/Image-10.png" alt="Peeking beaver" className="w-full h-auto drop-shadow-md" />
+                                {/* Standardized Peeking Beaver (Holding the title) */}
+                                <div className="absolute -top-[20px] left-1/2 -translate-x-1/2 w-28 h-28 z-10 pointer-events-none">
+                                    <img src="/beavers/Image-3.png" alt="Peeking beaver" className="w-full h-auto drop-shadow-md" />
                                 </div>
                                 <div className="bg-[#F9E6E2] dark:bg-zinc-800/80 px-12 py-4 rounded-[40px] shadow-sm border border-white/20 relative z-0 mt-8">
-                                    <h2 className="text-4xl font-black text-accent-brown dark:text-white">من نحن</h2>
+                                    <h2 className="text-4xl font-black text-primary dark:text-white"><span className="text-accent-brown dark:text-primary">من</span> نحن</h2>
+                                </div>
+
+                                {/* Side Sidebeavers */}
+                                <div className="absolute -right-32 top-0 w-32 hidden lg:block">
+                                    <img src="/beavers/Image-6.png" alt="" className="w-full h-auto" />
+                                </div>
+                                <div className="absolute -left-32 top-0 w-32 hidden lg:block">
+                                    <img src="/beavers/Image-11.png" alt="" className="w-full h-auto scale-x-[-1]" />
                                 </div>
                             </div>
-                            <h3 className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-bold leading-relaxed">فنان متخصص في صناعة المنتجات اليدوية الفريدة والإبداعية</h3>
+                            <h3 className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-bold leading-relaxed pr-4">فنان متخصص في صناعة المنتجات اليدوية الفريدة والإبداعية</h3>
                         </div>
 
                         <div className="flex-1 w-full max-w-xl">
@@ -159,14 +168,24 @@ const HomePage: React.FC<HomePageProps> = ({ onAddToCart }) => {
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="flex flex-col items-center mb-16 text-center">
                         <div className="relative inline-block mb-4">
-                            <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-20 h-20 z-10 pointer-events-none">
+                            {/* Standardized Peeking Beaver (Holding the title) */}
+                            <div className="absolute -top-[20px] left-1/2 -translate-x-1/2 w-28 h-28 z-10 pointer-events-none">
                                 <img src="/beavers/Image-3.png" alt="Delivery beaver" className="w-full h-auto drop-shadow-sm" />
                             </div>
 
+                            {/* Pill Box Title */}
                             <div className="bg-[#F9E6E2] dark:bg-zinc-800/80 px-12 py-4 rounded-[40px] shadow-sm border border-white/20 relative z-0 mt-8">
-                                <h2 className="text-3xl md:text-4xl font-black text-accent-brown dark:text-white">
-                                    خيارات <span className="text-primary">الاستلام و التوصيل</span>
+                                <h2 className="text-3xl md:text-4xl font-black text-primary dark:text-white">
+                                    <span className="text-accent-brown dark:text-primary">خيارات</span> الاستلام و التوصيل
                                 </h2>
+                            </div>
+
+                            {/* Side Illustrations */}
+                            <div className="absolute -right-32 top-0 w-32 hidden lg:block">
+                                <img src="/beavers/Image-10.png" alt="" className="w-full h-auto" />
+                            </div>
+                            <div className="absolute -left-32 top-0 w-32 hidden lg:block">
+                                <img src="/beavers/Image-2.png" alt="" className="w-full h-auto scale-x-[-1]" />
                             </div>
                         </div>
                         <p className="mt-4 text-gray-500 dark:text-gray-400 max-w-lg mx-auto font-medium">اختر الطريقة الأكثر ملاءمة لاستلام كنوزك المصنوعة يدوياً</p>
@@ -174,8 +193,8 @@ const HomePage: React.FC<HomePageProps> = ({ onAddToCart }) => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
                         <div className="relative group">
-                            <div className="absolute -top-12 -right-4 w-24 h-24 z-20 pointer-events-none group-hover:scale-110 transition-transform">
-                                <img src="/beavers/Image-10.png" alt="Delivery" className="w-full h-auto drop-shadow-md" />
+                            <div className="absolute -top-12 -right-4 w-24 h-24 z-20 pointer-events-none group-hover:scale-110 transition-transform duration-300">
+                                <img src="/beavers/Image-6.png" alt="Delivery" className="w-full h-auto drop-shadow-md" />
                             </div>
                             <div className="bg-white dark:bg-zinc-800 p-10 rounded-[40px] shadow-xl border border-gray-100 dark:border-zinc-700 text-right flex flex-col items-end gap-4 hover:shadow-2xl transition-shadow duration-500">
                                 <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
@@ -190,8 +209,8 @@ const HomePage: React.FC<HomePageProps> = ({ onAddToCart }) => {
                         </div>
 
                         <div className="relative group">
-                            <div className="absolute -top-12 -left-4 w-24 h-24 z-20 pointer-events-none group-hover:scale-110 transition-transform -scale-x-100">
-                                <img src="/beavers/Image-7.png" alt="Pickup" className="w-full h-auto drop-shadow-md" />
+                            <div className="absolute -top-12 -left-4 w-24 h-24 z-20 pointer-events-none group-hover:scale-110 transition-transform duration-300">
+                                <img src="/beavers/Image-10.png" alt="Pickup" className="w-full h-auto drop-shadow-md" />
                             </div>
                             <div className="bg-white dark:bg-zinc-800 p-10 rounded-[40px] shadow-xl border border-gray-100 dark:border-zinc-700 text-right flex flex-col items-end gap-4 hover:shadow-2xl transition-shadow duration-500">
                                 <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary">

@@ -60,9 +60,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                 )}
                             </Link>
                             <ThemeToggle />
-                            <button className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 transition text-gray-600 dark:text-gray-300">
-                                <span className="material-icons-round">account_circle</span>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -79,8 +76,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                         <div className="md:col-span-1">
                             <div className="flex items-center gap-2 mb-4">
-                                <div className="w-10 h-10 bg-accent-brown rounded-full flex items-center justify-center text-white font-bold text-xl">ق</div>
-                                <span className="text-xl font-bold text-accent-brown dark:text-white">قنادس</span>
+                                <div className="w-10 h-10 bg-white dark:bg-zinc-800 rounded-2xl flex items-center justify-center p-1 border border-gray-100 dark:border-zinc-700 shadow-sm">
+                                    <img src="/beavers/Image-11.png" alt="Logo" className="w-full h-full object-contain" />
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="text-xl font-black text-accent-brown dark:text-white leading-none">قنادس</span>
+                                    <span className="text-[10px] text-primary font-bold uppercase tracking-wider">Kandoos</span>
+                                </div>
                             </div>
                             <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                                 شكراً لك على دعم فني الأصيل. شراؤك يغذي مواهبي ويجعلني قادرة على تكريس المزيد من الوقت للحرفة التي أحبها.
@@ -110,8 +112,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         <div>
                             <h4 className="font-bold text-lg mb-6 text-accent-brown dark:text-white">تواصل معنا</h4>
                             <ul className="space-y-4 text-sm text-gray-500 dark:text-gray-400">
-                                <li className="flex items-center gap-2"> qanades@gmail.com <span className="material-icons-round text-xs">email</span></li>
-                                <li className="flex items-center gap-2" dir="ltr"><span className="material-icons-round text-xs">phone</span> +123 4456 789</li>
+                                <li className="flex items-center gap-2 justify-end">
+                                    <span>qanades@gmail.com</span>
+                                    <span className="material-icons-round text-lg">email</span>
+                                </li>
+                                <li className="flex items-center gap-2 justify-end">
+                                    <span>+123 4456 789</span>
+                                    <span className="material-icons-round text-lg">phone</span>
+                                </li>
                             </ul>
                         </div>
                         <div className="flex flex-col items-center justify-center md:items-end">
