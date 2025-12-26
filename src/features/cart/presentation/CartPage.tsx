@@ -18,6 +18,27 @@ const CartPage: React.FC<CartPageProps> = ({ cart, onUpdateQty, onRemove }) => {
     const tax = subtotal * 0.1;
     const total = subtotal + shipping + tax;
 
+    const handleSendOnWhatsApp = () => {
+        let message = 'مرحباً! أود إتمام الطلب التالي:\n\n';
+
+        cart.forEach((item, index) => {
+            message += `${index + 1}. *${item.name}*\n`;
+            message += `   الكمية: ${item.quantity}\n`;
+            message += `   السعر: ${item.price} جنيه\n`;
+            message += `   المجموع: ${item.price * item.quantity} جنيه\n\n`;
+        });
+
+        message += `📦 عدد المنتجات: ${cart.length}\n`;
+        message += `💰 المجموع الفرعي: ${subtotal.toFixed(2)} جنيه\n`;
+        message += `🚚 الشحن: ${shipping.toFixed(2)} جنيه\n`;
+        message += `📋 الضريبة: ${tax.toFixed(2)} جنيه\n`;
+        message += `✅ الإجمالي: ${total.toFixed(2)} جنيه\n\n`;
+        message += 'شكراً!';
+
+        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    };
+
     return (
         <div className="container mx-auto px-4 py-12 text-right" dir="rtl">
             <div className="flex flex-col items-center mb-16">
@@ -88,9 +109,17 @@ const CartPage: React.FC<CartPageProps> = ({ cart, onUpdateQty, onRemove }) => {
                                 <span>{total.toFixed(2)} EGP</span>
                             </div>
                         </div>
-                        <button className="w-full bg-primary text-white font-bold py-4 rounded-2xl hover:bg-orange-600 transition shadow-lg mb-4">
-                            إتمام الطلب
+                        <button
+                            onClick={handleSendOnWhatsApp}
+                            disabled={cart.length === 0}
+                            className="w-full bg-green-500 text-white font-bold py-4 rounded-2xl hover:bg-green-600 transition shadow-lg mb-4 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            <span className="material-icons-round">chat</span>
+                            إرسال الطلب عبر واتساب
                         </button>
+                        {/* <button className="w-full bg-primary text-white font-bold py-4 rounded-2xl hover:bg-orange-600 transition shadow-lg mb-4">
+                            إتمام الطلب
+                        </button> */}
                         <Link href="/products" className="w-full bg-gray-50 dark:bg-zinc-700 text-gray-600 dark:text-gray-200 font-bold py-4 rounded-2xl hover:bg-gray-100 transition block text-center">
                             متابعة التسوق
                         </Link>

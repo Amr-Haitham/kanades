@@ -7,7 +7,7 @@ import { useToast } from '@/core/layers/presentation/providers/ToastProvider';
 
 interface ProductDetailPageProps {
     product: Product;
-    onAddToCart: (product: Product) => void;
+    onAddToCart: (product: Product, quantity?: number) => void;
 }
 
 const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, onAddToCart }) => {
@@ -15,15 +15,22 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, onAddToC
     const { showToast } = useToast();
 
     const handleAddToCart = () => {
-        onAddToCart(product);
+        onAddToCart(product, qty);
         showToast(
-            `تمت إضافة "${product.name}" إلى السلة بنجاح! 🎉`,
+            `تمت إضافة ${qty} من "${product.name}" إلى السلة بنجاح! 🎉`,
             'success',
             {
                 label: 'عرض السلة',
                 href: '/cart'
             }
         );
+    };
+
+    const handleOrderOnWhatsApp = () => {
+        const totalPrice = product.price * qty;
+        const message = `مرحباً! أود طلب المنتج التالي:\n\n📦 *${product.name}*\n🔢 الكمية: ${qty}\n💰 السعر للقطعة: ${product.price} جنيه\n💵 المجموع: ${totalPrice} جنيه\n📝 الوصف: ${product.description}\n\nشكراً!`;
+        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
     };
 
     return (
@@ -81,7 +88,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, onAddToC
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-4">
                         <button
                             onClick={handleAddToCart}
                             className="w-full bg-primary text-white font-bold py-4 rounded-2xl hover:bg-orange-600 transition shadow-lg flex items-center justify-center gap-2 hover:scale-105 active:scale-95"
@@ -89,9 +96,16 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, onAddToC
                             <span className="material-icons-round">shopping_cart</span>
                             أضف للسلة
                         </button>
-                        <button className="w-full bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 text-gray-800 dark:text-white font-bold py-4 rounded-2xl hover:bg-gray-50 transition shadow-sm text-center">
-                            شراء الآن
+                        <button
+                            onClick={handleOrderOnWhatsApp}
+                            className="w-full bg-green-500 text-white font-bold py-4 rounded-2xl hover:bg-green-600 transition shadow-lg flex items-center justify-center gap-2 hover:scale-105 active:scale-95"
+                        >
+                            <span className="material-icons-round">chat</span>
+                            اطلب عبر واتساب
                         </button>
+                        {/* <button className="w-full bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 text-gray-800 dark:text-white font-bold py-4 rounded-2xl hover:bg-gray-50 transition shadow-sm text-center">
+                            شراء الآن
+                        </button> */}
                     </div>
                 </div>
             </div>

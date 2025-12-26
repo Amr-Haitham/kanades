@@ -36,7 +36,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
                         {/* Desktop Menu */}
                         <div className="hidden md:flex items-center gap-8 font-medium">
-                            {NAV_ITEMS.map((item) => (
+                            {NAV_ITEMS.filter(item => item.path !== '/categories').map((item) => (
                                 <Link
                                     key={item.path}
                                     href={item.path}
@@ -98,7 +98,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         <div>
                             <h4 className="font-bold text-lg mb-6 text-accent-brown dark:text-white">روابط سريعة</h4>
                             <ul className="space-y-4 text-sm text-gray-500 dark:text-gray-400">
-                                {NAV_ITEMS.map(item => (
+                                {NAV_ITEMS.filter(item => item.path !== '/categories').map(item => (
                                     <li key={item.path}>
                                         <Link href={item.path} className="hover:text-primary flex items-center gap-2">
                                             {item.label}
