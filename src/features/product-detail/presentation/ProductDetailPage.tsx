@@ -8,11 +8,9 @@ import { useToast } from '@/core/layers/presentation/providers/ToastProvider';
 interface ProductDetailPageProps {
     product: Product;
     onAddToCart: (product: Product) => void;
-    aiRec: string | null;
-    loadingAi: boolean;
 }
 
-const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, onAddToCart, aiRec, loadingAi }) => {
+const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, onAddToCart }) => {
     const [qty, setQty] = useState(1);
     const { showToast } = useToast();
 
@@ -62,27 +60,6 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, onAddToC
                         <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
                             {product.description}
                         </p>
-                    </div>
-
-                    {/* AI Helper Card */}
-                    <div className="bg-secondary/5 border border-secondary/20 p-6 rounded-3xl relative overflow-hidden group">
-                        <div className="flex items-center gap-3 mb-3 text-secondary justify-end">
-                            <h4 className="font-bold">رأي القندس الذكي</h4>
-                            <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center border border-secondary/20">
-                                <img src="/beavers/Image-3.png" alt="Smart Beaver" className="w-8 h-8 object-contain" />
-                            </div>
-                        </div>
-                        {loadingAi ? (
-                            <div className="animate-pulse flex space-y-2 flex-col items-end">
-                                <div className="h-2 bg-secondary/10 rounded w-full"></div>
-                                <div className="h-2 bg-secondary/10 rounded w-3/4"></div>
-                            </div>
-                        ) : (
-                            <p className="text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed">"{aiRec}"</p>
-                        )}
-                        <div className="absolute -bottom-6 -left-6 opacity-[0.03] group-hover:opacity-10 transition-opacity">
-                            <img src="/beavers/Image-3.png" alt="Beaver mascot" className="w-32 h-32 object-contain" />
-                        </div>
                     </div>
 
                     <div className="flex items-center justify-between py-6 border-y border-gray-100 dark:border-zinc-800">
