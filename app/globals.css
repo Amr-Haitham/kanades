@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
+@theme {
+    --color-primary: #D47754;
+    --color-secondary: #3C8D89;
+    --color-bg-cream: #FDFBF7;
+    --color-surface-dark: #2d2d2d;
+    --color-accent-brown: #4A3B32;
+
+    --color-background-light: #FAFAFA;
+    --color-background-dark: #1A1A1A;
+    --color-text-light: #333333;
+    --color-text-dark: #E5E5E5;
+
+    --font-tajawal: "Tajawal", "Cairo", sans-serif;
+    --font-sans: var(--font-tajawal);
+    --font-display: var(--font-tajawal);
+    --font-body: var(--font-tajawal);
+
+    --radius-3xl: 1.5rem;
+    --radius-4xl: 2rem;
+}
+
+/* Enable class-based dark mode for Tailwind 4.0 */
+@variant dark (&:where(.dark, .dark *));
+
+/* Base styles using CSS variables for theme switching */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #FAFAFA;
+    --foreground: #333333;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+    --background: #1A1A1A;
+    --foreground: #E5E5E5;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@layer base {
+    body {
+        background-color: var(--background);
+        color: var(--foreground);
+        font-family: var(--font-sans);
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.material-icons-round {
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
 }
