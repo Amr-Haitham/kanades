@@ -1,7 +1,10 @@
 
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
 import { Product } from '@/core/utils/types';
+import { useToast } from '@/core/layers/presentation/providers/ToastProvider';
 
 interface ProductCardProps {
     product: Product;
@@ -9,6 +12,20 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
+    const { showToast } = useToast();
+
+    const handleAddToCart = () => {
+        onAddToCart(product);
+        showToast(
+            `تمت إضافة "${product.name}" إلى السلة بنجاح! 🎉`,
+            'success',
+            {
+                label: 'عرض السلة',
+                href: '/cart'
+            }
+        );
+    };
+
     return (
         <div className="bg-white dark:bg-zinc-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition group border border-gray-100 dark:border-zinc-700">
             <Link href={`/product/${product.id}`} className="block relative aspect-square overflow-hidden">
@@ -36,8 +53,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
                 <div className="flex justify-between items-center mt-6">
                     <span className="text-xl font-bold text-primary">{product.price} EGP</span>
                     <button
-                        onClick={() => onAddToCart(product)}
-                        className="bg-secondary hover:bg-teal-700 text-white p-2 rounded-xl flex items-center justify-center transition shadow-md shadow-secondary/20"
+                        onClick={handleAddToCart}
+                        className="bg-secondary hover:bg-teal-700 text-white p-2 rounded-xl flex items-center justify-center transition shadow-md shadow-secondary/20 hover:scale-105 active:scale-95"
                     >
                         <span className="material-icons-round text-sm ml-2">add_shopping_cart</span>
                         <span className="text-sm font-bold">إضافة</span>

@@ -3,6 +3,7 @@
 
 import React, { useState } from 'react';
 import { Product } from '@/core/utils/types';
+import { useToast } from '@/core/layers/presentation/providers/ToastProvider';
 
 interface ProductDetailPageProps {
     product: Product;
@@ -13,6 +14,19 @@ interface ProductDetailPageProps {
 
 const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, onAddToCart, aiRec, loadingAi }) => {
     const [qty, setQty] = useState(1);
+    const { showToast } = useToast();
+
+    const handleAddToCart = () => {
+        onAddToCart(product);
+        showToast(
+            `تمت إضافة "${product.name}" إلى السلة بنجاح! 🎉`,
+            'success',
+            {
+                label: 'عرض السلة',
+                href: '/cart'
+            }
+        );
+    };
 
     return (
         <div className="container mx-auto px-4 py-12 text-right" dir="rtl">
@@ -92,8 +106,8 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, onAddToC
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <button
-                            onClick={() => onAddToCart(product)}
-                            className="w-full bg-primary text-white font-bold py-4 rounded-2xl hover:bg-orange-600 transition shadow-lg flex items-center justify-center gap-2"
+                            onClick={handleAddToCart}
+                            className="w-full bg-primary text-white font-bold py-4 rounded-2xl hover:bg-orange-600 transition shadow-lg flex items-center justify-center gap-2 hover:scale-105 active:scale-95"
                         >
                             <span className="material-icons-round">shopping_cart</span>
                             أضف للسلة

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { CartProvider } from "@/core/layers/presentation/providers/CartProvider";
 import { ThemeProvider } from "@/core/layers/presentation/providers/ThemeProvider";
+import { ToastProvider } from "@/core/layers/presentation/providers/ToastProvider";
 import Layout from "@/core/layers/presentation/components/Layout";
 
 export const metadata: Metadata = {
@@ -37,11 +38,13 @@ export default function RootLayout({
       </head>
       <body className="transition-colors duration-300">
         <ThemeProvider>
-          <CartProvider>
-            <Layout>
-              {children}
-            </Layout>
-          </CartProvider>
+          <ToastProvider>
+            <CartProvider>
+              <Layout>
+                {children}
+              </Layout>
+            </CartProvider>
+          </ToastProvider>
         </ThemeProvider>
       </body>
     </html>
