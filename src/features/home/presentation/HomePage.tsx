@@ -1,6 +1,8 @@
+'use client';
 
 import React from 'react';
 import Link from 'next/link';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Product } from '@/core/utils/types';
 import { PRODUCTS } from '@/core/layers/presentation/constants';
 import ProductCard from '@/core/layers/presentation/components/ProductCard';
@@ -10,42 +12,194 @@ interface HomePageProps {
 }
 
 const HomePage: React.FC<HomePageProps> = ({ onAddToCart }) => {
+    const { scrollY } = useScroll();
+    const beaverY = useTransform(scrollY, [0, 500], [0, 150]);
+    const beaverRotate = useTransform(scrollY, [0, 500], [0, 10]);
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.1,
+            }
+        }
+    };
+
+    const headingVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.6, 0.05, 0.01, 0.9] as const
+            }
+        }
+    };
+
+    const slideInVariants = {
+        hidden: { opacity: 0, x: 100 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.6, 0.05, 0.01, 0.9] as const
+            }
+        }
+    };
+
     return (
         <div className="space-y-20 pb-20 pt-10" dir="rtl">
             {/* Hero Section */}
-            <section className="relative h-[60vh] md:h-[70vh] flex items-center overflow-hidden bg-accent-brown rounded-[40px] mx-4 shadow-2xl">
+            <motion.section
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                className="relative h-[60vh] md:h-[70vh] flex items-center overflow-hidden bg-accent-brown rounded-[40px] mx-4 shadow-2xl"
+            >
+                {/* Animated Background Gradient */}
+                <motion.div
+                    className="absolute inset-0 z-0"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1.2 }}
+                >
+                    <motion.div
+                        className="absolute inset-0 bg-gradient-to-l from-accent-brown via-accent-brown/20 to-transparent"
+                        animate={{
+                            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                        }}
+                        transition={{
+                            duration: 10,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                    />
+                </motion.div>
+
                 <div className="absolute inset-0 z-0 text-right">
-                    <img
+                    <motion.img
+                        initial={{ scale: 1.1, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 0.3 }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR5zKLu7-1KNNJ9Ho086sqwCDsJQL1ZqRpUeUF6BVjTzRRS3MjpJKXY_Fu4iuhJdkDuT81gdFZSnf5hG6Ujoyx4WrvaLxClErxQmdzGjWevhGynKmqWRHpTc5Cpg_yMTAdZ1y7mFe3fYLOdQrcXNjJPv6MsJm1HvZ20-phfuPxPl9yGH6uNlSW3cmaCiCgpfpE9pXp7QI2YH7BJqocK4ILZcm5uuDzn2dnkIA8gAsAYZU6KmEVP4VsZ_fxZHNfTHjfXmzbWflFo0OM"
-                        className="w-full h-full object-cover opacity-30"
+                        className="w-full h-full object-cover"
                         alt="Hero Background"
                     />
                     <div className="absolute inset-0 bg-gradient-to-l from-accent-brown via-accent-brown/20 to-transparent"></div>
 
-                    {/* Decorative Beaver Team */}
-                    <div className="absolute top-1/2 left-8 md:left-20 -translate-y-1/2 w-[220px] md:w-[380px] z-10 animate-float pointer-events-none">
+                    {/* Decorative Beaver Team with Parallax */}
+                    <motion.div
+                        style={{ y: beaverY, rotate: beaverRotate }}
+                        initial={{ x: -100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{
+                            duration: 1.2,
+                            delay: 0.3,
+                            ease: [0.6, 0.05, 0.01, 0.9]
+                        }}
+                        whileHover={{ scale: 1.05, rotate: -5 }}
+                        className="absolute top-1/2 left-8 md:left-20 -translate-y-1/2 w-[220px] md:w-[380px] z-10 pointer-events-none"
+                    >
                         <img src="/beavers/Image.png" alt="Beaver team" className="w-full h-auto drop-shadow-2xl" />
-                    </div>
+                    </motion.div>
                 </div>
+
                 <div className="container mx-auto px-4 md:px-12 relative z-10 text-right">
-                    <div className="max-w-xl md:max-w-2xl ml-auto space-y-4 md:space-y-6">
-                        <h1 className="text-4xl md:text-7xl font-black text-white leading-tight">
-                            استكشف <br />
-                            <span className="text-primary">كنوزنا اليدوية</span> <br />
-                            بلمسة القندس
-                        </h1>
-                        <p className="text-sm md:text-lg text-gray-200 leading-relaxed max-w-lg ml-auto">
+                    <motion.div
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
+                        className="max-w-xl md:max-w-2xl ml-auto space-y-4 md:space-y-6"
+                    >
+                        <motion.h1
+                            variants={headingVariants}
+                            className="text-4xl md:text-7xl font-black text-white leading-tight"
+                        >
+                            <motion.span
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                            >
+                                استكشف
+                            </motion.span>
+                            <br />
+                            <motion.span
+                                className="text-primary"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.4 }}
+                                whileHover={{
+                                    scale: 1.05,
+                                    textShadow: "0 0 20px rgba(255, 138, 0, 0.5)"
+                                }}
+                            >
+                                كنوزنا اليدوية
+                            </motion.span>
+                            <br />
+                            <motion.span
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.6 }}
+                            >
+                                بلمسة القندس
+                            </motion.span>
+                        </motion.h1>
+
+                        <motion.p
+                            variants={slideInVariants}
+                            className="text-sm md:text-lg text-gray-200 leading-relaxed max-w-lg ml-auto"
+                        >
                             ادعم الحرفيين المحليين وأضف جمالاً فريداً مصنوعاً بحب. نحن هنا لنجمع لك أفضل ما تنتجه الأيدي المبدعة.
-                        </p>
-                        <div className="flex justify-end pt-4">
-                            <Link href="/products" className="bg-primary hover:bg-orange-600 text-white font-bold px-10 py-4 rounded-full transition shadow-lg transform hover:scale-105 flex items-center gap-2 text-lg">
-                                تسوق الآن
-                                <span className="material-icons-round">arrow_back</span>
-                            </Link>
-                        </div>
-                    </div>
+                        </motion.p>
+
+
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{
+                                duration: 0.6,
+                                delay: 0.8,
+                                ease: [0.6, 0.05, 0.01, 0.9] as const
+                            }}
+                            className="flex justify-end pt-4"
+                        >
+                            <motion.div
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <Link
+                                    href="/products"
+                                    className="bg-primary hover:bg-orange-600 text-white font-bold px-10 py-4 rounded-full shadow-lg flex items-center gap-2 text-lg relative overflow-hidden group"
+                                >
+                                    <motion.span
+                                        className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600"
+                                        initial={{ x: '-100%' }}
+                                        whileHover={{ x: 0 }}
+                                        transition={{ duration: 0.3 }}
+                                    />
+                                    <span className="relative z-10">تسوق الآن</span>
+                                    <motion.span
+                                        className="material-icons-round relative z-10"
+                                        animate={{ x: [0, -5, 0] }}
+                                        transition={{
+                                            duration: 1.5,
+                                            repeat: Infinity,
+                                            ease: "easeInOut"
+                                        }}
+                                    >
+                                        arrow_back
+                                    </motion.span>
+                                </Link>
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
                 </div>
-            </section>
+            </motion.section>
 
             {/* Featured Products */}
             <section className="container mx-auto px-4 relative">
@@ -58,9 +212,9 @@ const HomePage: React.FC<HomePageProps> = ({ onAddToCart }) => {
 
                         {/* Pill Box Title */}
                         <div className="bg-[#F9E6E2] dark:bg-zinc-800/80 px-12 py-4 rounded-[32px] shadow-sm border border-white/20 relative z-0 mt-8">
-                            <h2 className="text-3xl md:text-4xl font-black text-primary dark:text-white flex items-center gap-2">
+                            <h2 className="text-3xl md:text-4xl font-black flex items-center gap-2">
                                 <span className="text-accent-brown dark:text-primary">إبداعات</span>
-                                <span>مميزة</span>
+                                <span className="text-primary dark:text-white">مميزة</span>
                             </h2>
                         </div>
 
@@ -100,7 +254,7 @@ const HomePage: React.FC<HomePageProps> = ({ onAddToCart }) => {
                                     <img src="/beavers/Image-3.png" alt="Peeking beaver" className="w-full h-auto drop-shadow-md" />
                                 </div>
                                 <div className="bg-[#F9E6E2] dark:bg-zinc-800/80 px-12 py-4 rounded-[40px] shadow-sm border border-white/20 relative z-0 mt-8">
-                                    <h2 className="text-4xl font-black text-primary dark:text-white"><span className="text-accent-brown dark:text-primary">من</span> نحن</h2>
+                                    <h2 className="text-4xl font-black"><span className="text-accent-brown dark:text-primary">من</span> <span className="text-primary dark:text-white">نحن</span></h2>
                                 </div>
 
                                 {/* Side Sidebeavers */}
@@ -175,8 +329,8 @@ const HomePage: React.FC<HomePageProps> = ({ onAddToCart }) => {
 
                             {/* Pill Box Title */}
                             <div className="bg-[#F9E6E2] dark:bg-zinc-800/80 px-12 py-4 rounded-[40px] shadow-sm border border-white/20 relative z-0 mt-8">
-                                <h2 className="text-3xl md:text-4xl font-black text-primary dark:text-white">
-                                    <span className="text-accent-brown dark:text-primary">خيارات</span> الاستلام و التوصيل
+                                <h2 className="text-3xl md:text-4xl font-black">
+                                    <span className="text-accent-brown dark:text-primary">خيارات</span> <span className="text-primary dark:text-white">الاستلام و التوصيل</span>
                                 </h2>
                             </div>
 

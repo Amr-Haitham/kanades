@@ -16,7 +16,7 @@ const CategoriesPage: React.FC = () => {
 
                     {/* Pill Box Title */}
                     <div className="bg-[#F9E6E2] dark:bg-zinc-800/80 px-12 py-5 rounded-[40px] shadow-sm border border-white/20 relative z-0 mt-12">
-                        <h1 className="text-4xl md:text-6xl font-black text-primary dark:text-white">
+                        <h1 className="text-4xl md:text-6xl font-black text-primary">
                             المجموعات
                         </h1>
                         <div className="absolute -bottom-2 -right-4 bg-white dark:bg-zinc-800 p-2 rounded-xl shadow-lg border border-gray-100 dark:border-zinc-700 -rotate-12">

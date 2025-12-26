@@ -35,7 +35,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onAddToCart }) => {
 
                     {/* Pill Box Title */}
                     <div className="bg-[#F9E6E2] dark:bg-zinc-800/80 px-14 py-5 rounded-[40px] shadow-sm border border-white/20 relative z-0 mt-8">
-                        <h1 className="text-4xl md:text-5xl font-black text-primary dark:text-white">
+                        <h1 className="text-4xl md:text-5xl font-black text-primary">
                             منتجاتنا
                         </h1>
                     </div>
