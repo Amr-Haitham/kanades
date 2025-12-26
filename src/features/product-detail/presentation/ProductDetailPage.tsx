@@ -52,9 +52,11 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, onAddToC
 
                     {/* AI Helper Card */}
                     <div className="bg-secondary/5 border border-secondary/20 p-6 rounded-3xl relative overflow-hidden group">
-                        <div className="flex items-center gap-2 mb-3 text-secondary justify-end">
-                            <h4 className="font-bold">رأي خبير قندس الذكي</h4>
-                            <span className="material-icons-round">auto_awesome</span>
+                        <div className="flex items-center gap-3 mb-3 text-secondary justify-end">
+                            <h4 className="font-bold">رأي القندس الذكي</h4>
+                            <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center border border-secondary/20">
+                                <img src="/beavers/Image-3.png" alt="Smart Beaver" className="w-8 h-8 object-contain" />
+                            </div>
                         </div>
                         {loadingAi ? (
                             <div className="animate-pulse flex space-y-2 flex-col items-end">
@@ -62,10 +64,10 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, onAddToC
                                 <div className="h-2 bg-secondary/10 rounded w-3/4"></div>
                             </div>
                         ) : (
-                            <p className="text-sm text-gray-700 dark:text-gray-300 italic">"{aiRec}"</p>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed">"{aiRec}"</p>
                         )}
-                        <div className="absolute -bottom-4 -right-4 opacity-5 group-hover:opacity-20 transition">
-                            <span className="material-icons-round text-8xl">spa</span>
+                        <div className="absolute -bottom-6 -left-6 opacity-[0.03] group-hover:opacity-10 transition-opacity">
+                            <img src="/beavers/Image-3.png" alt="Beaver mascot" className="w-32 h-32 object-contain" />
                         </div>
                     </div>
 

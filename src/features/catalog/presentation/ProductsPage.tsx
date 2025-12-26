@@ -26,12 +26,30 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onAddToCart }) => {
     };
 
     return (
-        <div className="container mx-auto px-4 py-12 text-right" dir="rtl">
-            <div className="text-center mb-16 relative">
-                <div className="bg-primary/10 inline-block px-12 py-4 rounded-3xl relative z-10">
-                    <h1 className="text-4xl font-extrabold text-primary">منتجاتنا</h1>
+        <div className="container mx-auto px-4 py-20 text-right" dir="rtl">
+            <div className="flex flex-col items-center mb-16 text-center">
+                <div className="relative inline-block mb-4">
+                    {/* Peeking Beaver */}
+                    <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 z-10 pointer-events-none">
+                        <img src="/beavers/Image-10.png" alt="Peeking beaver" className="w-full h-auto drop-shadow-md" />
+                    </div>
+
+                    {/* Pill Box Title */}
+                    <div className="bg-[#F9E6E2] dark:bg-zinc-800/80 px-14 py-5 rounded-[40px] shadow-sm border border-white/20 relative z-0 mt-8">
+                        <h1 className="text-4xl md:text-5xl font-black text-accent-brown dark:text-white">
+                            منتجاتنا
+                        </h1>
+                    </div>
+
+                    {/* Side Illustrations */}
+                    <div className="absolute -right-36 top-0 w-32 hidden lg:block">
+                        <img src="/beavers/Image-8.png" alt="Working beaver" className="w-full h-auto" />
+                    </div>
+                    <div className="absolute -left-36 top-0 w-28 hidden lg:block opacity-70">
+                        <img src="/beavers/Image-11.png" alt="Happy beaver" className="w-full h-auto" />
+                    </div>
                 </div>
-                <p className="mt-4 text-gray-500">استكشف مجموعتنا من الكنوز الأصيلة المصنوعة يدوياً.</p>
+                <p className="mt-6 text-gray-500 dark:text-gray-400 max-w-lg mx-auto">استكشف مجموعتنا من الكنوز الأصيلة المصنوعة يدوياً بكل إتقان وشغف.</p>
             </div>
 
             {/* Filter Tabs */}
@@ -41,8 +59,8 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onAddToCart }) => {
                         key={cat}
                         onClick={() => setFilter(cat)}
                         className={`px-6 py-3 rounded-2xl font-medium transition ${filter === cat
-                                ? 'bg-primary text-white shadow-lg'
-                                : 'bg-white dark:bg-zinc-800 text-gray-500 hover:bg-gray-50 dark:hover:bg-zinc-700'
+                            ? 'bg-primary text-white shadow-lg'
+                            : 'bg-white dark:bg-zinc-800 text-gray-500 hover:bg-gray-50 dark:hover:bg-zinc-700'
                             }`}
                     >
                         {categoryLabels[cat] || cat}

@@ -52,7 +52,6 @@ export const NAV_ITEMS: NavItem[] = [
     { label: "الرئيسية", path: "/", icon: "home" },
     { label: "المنتجات", path: "/products", icon: "grid_view" },
     { label: "المجموعات", path: "/categories", icon: "category" },
-    { label: "من نحن", path: "/about", icon: "info" },
 ];
 
-export const MASCOT_URL = "https://lh3.googleusercontent.com/aida-public/AB6AXuDtGFBKnypYBoMr1uclSHxtRYqE6QjOnHbtRwzZaJFH52vzQ1oYt_zF0b8AnPQwuMfu4SsLs5uzXXUZPEBRcK6eLBlXizpAnRkOtSfyFdZ89wAPF5wyeZzMzjlPZIPIgjleDiH5Fqn8Xq71OaZkRxmuetPF4CQAPWoSXM44_49CCU4T9IpoasHju4FmaDpxfGlShXWhvYyGmKj8ru3V4WZvSy3NwimR1dQZ8WGpJUykbB-szylCJTM6uQ818Oqug_aOIo9yH_2Q5ZDu";
+export const MASCOT_URL = "/beavers/Image.png";

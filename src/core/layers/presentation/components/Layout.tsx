@@ -22,13 +22,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <nav className="sticky top-0 z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border-b border-gray-100 dark:border-zinc-800 transition-colors">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-20">
-                        {/* Logo & Account */}
                         <div className="flex items-center gap-6">
                             <Link href="/" className="flex items-center gap-2 group">
-                                <div className="w-10 h-10 bg-accent-brown rounded-full flex items-center justify-center text-white font-bold text-xl overflow-hidden group-hover:scale-105 transition">
-                                    <span className="material-icons-round">spa</span>
+                                <div className="w-12 h-12 bg-white dark:bg-zinc-800 rounded-2xl flex items-center justify-center p-1 border border-gray-100 dark:border-zinc-700 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                                    <img src="/beavers/Image-11.png" alt="Logo" className="w-full h-full object-contain" />
                                 </div>
-                                <span className="text-xl font-bold text-accent-brown dark:text-white hidden sm:block">قندس</span>
+                                <div className="flex flex-col">
+                                    <span className="text-xl font-black text-accent-brown dark:text-white leading-none">قنادس</span>
+                                    <span className="text-[10px] text-primary font-bold uppercase tracking-wider">Kandoos</span>
+                                </div>
                             </Link>
                         </div>
 

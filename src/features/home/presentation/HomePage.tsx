@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Link from 'next/link';
 import { Product } from '@/core/utils/types';
 import { PRODUCTS } from '@/core/layers/presentation/constants';
 import ProductCard from '@/core/layers/presentation/components/ProductCard';
@@ -10,90 +11,197 @@ interface HomePageProps {
 
 const HomePage: React.FC<HomePageProps> = ({ onAddToCart }) => {
     return (
-        <div className="space-y-20 pb-20" dir="rtl">
-            {/* Hero */}
-            <section className="relative h-[80vh] flex items-center overflow-hidden bg-accent-brown">
-                <div className="absolute inset-0 z-0">
+        <div className="space-y-20 pb-20 pt-10" dir="rtl">
+            {/* Hero Section - BACK AT THE TOP */}
+            <section className="relative h-[60vh] md:h-[70vh] flex items-center overflow-hidden bg-accent-brown rounded-[40px] mx-4 shadow-2xl">
+                <div className="absolute inset-0 z-0 text-right">
                     <img
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR5zKLu7-1KNNJ9Ho086sqwCDsJQL1ZqRpUeUF6BVjTzRRS3MjpJKXY_Fu4iuhJdkDuT81gdFZSnf5hG6Ujoyx4WrvaLxClErxQmdzGjWevhGynKmqWRHpTc5Cpg_yMTAdZ1y7mFe3fYLOdQrcXNjJPv6MsJm1HvZ20-phfuPxPl9yGH6uNlSW3cmaCiCgpfpE9pXp7QI2YH7BJqocK4ILZcm5uuDzn2dnkIA8gAsAYZU6KmEVP4VsZ_fxZHNfTHjfXmzbWflFo0OM"
                         className="w-full h-full object-cover opacity-30"
                         alt="Hero Background"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-l from-accent-brown via-transparent to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-l from-accent-brown via-accent-brown/20 to-transparent"></div>
+
+                    {/* Decorative Beaver Team - Positioned as in the image */}
+                    <div className="absolute top-1/2 left-8 md:left-20 -translate-y-1/2 w-[220px] md:w-[380px] z-10 animate-float pointer-events-none">
+                        <img src="/beavers/Image.png" alt="Beaver team" className="w-full h-auto drop-shadow-2xl" />
+                    </div>
                 </div>
-                <div className="container mx-auto px-4 relative z-10 text-right">
-                    <div className="max-w-2xl mr-auto space-y-6">
-                        <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight">
+                <div className="container mx-auto px-4 md:px-12 relative z-10 text-right">
+                    <div className="max-w-xl md:max-w-2xl ml-auto space-y-4 md:space-y-6">
+                        <h1 className="text-4xl md:text-7xl font-black text-white leading-tight">
                             استكشف <br />
-                            <span className="text-primary">كنوز يدوية أصيلة</span> <br />
-                            مميزة
+                            <span className="text-primary">كنوزنا اليدوية</span> <br />
+                            بلمسة القندس
                         </h1>
-                        <p className="text-lg text-gray-200 leading-relaxed">
-                            ادعم الحرفيين المحليين وأضف جمالاً فريداً مصنوعاً بحب إلى حياتك. من فن الماندالا المعقد إلى التصاميم المخصصة والتطريز التقليدي.
+                        <p className="text-sm md:text-lg text-gray-200 leading-relaxed max-w-lg ml-auto">
+                            ادعم الحرفيين المحليين وأضف جمالاً فريداً مصنوعاً بحب. نحن هنا لنجمع لك أفضل ما تنتجه الأيدي المبدعة.
                         </p>
-                        <div className="flex gap-4 pt-4 justify-start">
-                            <button className="bg-primary hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-full transition shadow-lg transform hover:scale-105 flex items-center gap-2">
+                        <div className="flex justify-end pt-4">
+                            <Link href="/products" className="bg-primary hover:bg-orange-600 text-white font-bold px-10 py-4 rounded-full transition shadow-lg transform hover:scale-105 flex items-center gap-2 text-lg">
                                 تسوق الآن
                                 <span className="material-icons-round">arrow_back</span>
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* Featured Products */}
-            <section className="container mx-auto px-4">
-                <div className="flex justify-between items-end mb-12">
-                    <div className="text-right">
-                        <h2 className="text-3xl font-bold text-accent-brown dark:text-white mb-2">إبداعات مميزة</h2>
-                        <p className="text-gray-500 dark:text-gray-400">تحف منتقاة من مجتمعنا الموهوب من الحرفيين</p>
+            <section className="container mx-auto px-4 relative">
+                <div className="flex flex-col items-center mb-16 text-center">
+                    <div className="relative inline-block mb-4">
+                        {/* Peeking Beaver */}
+                        <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 z-10 pointer-events-none">
+                            <img src="/beavers/Image-5.png" alt="Peeking beaver" className="w-full h-auto drop-shadow-md" />
+                        </div>
+
+                        {/* Pill Box Title */}
+                        <div className="bg-[#F9E6E2] dark:bg-zinc-800/80 px-12 py-4 rounded-[32px] shadow-sm border border-white/20 relative z-0 mt-8">
+                            <h2 className="text-3xl md:text-4xl font-black text-accent-brown dark:text-white flex items-center gap-2">
+                                <span>إبداعات</span>
+                                <span className="text-primary italic">مميزة</span>
+                            </h2>
+                        </div>
+
+                        {/* Side Illustrations */}
+                        <div className="absolute -right-32 top-0 w-32 hidden lg:block">
+                            <img src="/beavers/Image-9.png" alt="Crafting beaver" className="w-full h-auto" />
+                        </div>
+                        <div className="absolute -left-32 top-0 w-24 hidden lg:block opacity-60">
+                            <img src="/beavers/Image-13.png" alt="Artist beaver" className="w-full h-auto scale-x-[-1]" />
+                        </div>
                     </div>
-                    <button className="text-primary font-bold hover:underline flex items-center gap-1">
-                        <span className="material-icons-round text-sm">arrow_back</span>
-                        عرض الكل
-                    </button>
+                    <p className="text-gray-500 dark:text-gray-400 max-w-lg mx-auto">تحف منتقاة من مجتمعنا الموهوب من الحرفيين المبدعين</p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-0">
                     {PRODUCTS.map(product => (
                         <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
                     ))}
                 </div>
+
+                <div className="flex justify-center mt-12">
+                    <Link href="/products" className="text-primary font-bold hover:underline flex items-center gap-1 group">
+                        <span className="material-icons-round text-sm group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                        عرض كل المنتجات المميزة
+                    </Link>
+                </div>
             </section>
 
             {/* About Section */}
-            <section className="bg-secondary/10 py-20">
-                <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div className="relative">
-                        <div className="rounded-[40px] overflow-hidden aspect-video shadow-2xl">
-                            <img
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyHB_wlOOOxr-NjMkj23VU49Zh2pottA8KHHwRxi9Btzs93VyhOsv3DFmGAMu0f6sXFZVo7EwVPTsghikGjoYZVt6bKM4gat7meKDp04jGb4x9vUvtkeIyXJwq5P8H8t_feYTZmVbUGsu8XJmGQmy4YRm1G9Z0TsipiYW9KKrSA3nmYvJKeOwFOkBj6uIDkKur_swbPgkc_mP8XAwNWKiSk0DkawV4c22g2amjuOYmGc9IQ0jrqru6DzYKIqhtrpRJRYJwwaqyGzhS"
-                                alt="Crafting"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                        <div className="absolute -bottom-10 -left-10 bg-white dark:bg-zinc-800 p-8 rounded-3xl shadow-xl max-w-xs hidden md:block border border-gray-100 dark:border-zinc-700 text-right">
-                            <div className="flex items-center gap-4 mb-4 justify-end">
-                                <h4 className="font-bold">جودة مضمونة</h4>
-                                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary">
-                                    <span className="material-icons-round">verified</span>
+            <section className="bg-white dark:bg-zinc-900 py-20 relative overflow-hidden">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-12 mb-20">
+                        <div className="text-right flex-1">
+                            <div className="relative inline-block mb-6">
+                                <div className="absolute -top-12 right-6 w-24 h-24 z-10 pointer-events-none">
+                                    <img src="/beavers/Image-10.png" alt="Peeking beaver" className="w-full h-auto drop-shadow-md" />
+                                </div>
+                                <div className="bg-[#F9E6E2] dark:bg-zinc-800/80 px-12 py-4 rounded-[40px] shadow-sm border border-white/20 relative z-0 mt-8">
+                                    <h2 className="text-4xl font-black text-accent-brown dark:text-white">من نحن</h2>
                                 </div>
                             </div>
-                            <p className="text-xs text-gray-500">نضمن لك أفضل الخامات المصنوعة يدوياً بكل إتقان.</p>
+                            <h3 className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-bold leading-relaxed">فنان متخصص في صناعة المنتجات اليدوية الفريدة والإبداعية</h3>
+                        </div>
+
+                        <div className="flex-1 w-full max-w-xl">
+                            <img src="/beavers/Image.png" alt="Beaver Team" className="w-full h-auto drop-shadow-2xl animate-float" />
                         </div>
                     </div>
-                    <div className="space-y-6 text-right">
-                        <h2 className="text-4xl font-bold text-accent-brown dark:text-white">من نحن؟</h2>
-                        <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-                            فنانون متخصصون في صناعة المنتجات اليدوية الفريدة والإبداعية. نؤمن بأن الحرف اليدوية ليست مجرد منتجات، بل هي تعبير عن الهوية والإبداع.
-                        </p>
-                        <div className="grid grid-cols-2 gap-6 pt-6">
-                            <div className="p-6 bg-white dark:bg-zinc-800 rounded-3xl shadow-sm">
-                                <div className="text-3xl font-bold text-primary mb-1">+10</div>
-                                <div className="text-sm text-gray-400">سنوات الخبرة</div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="bg-white dark:bg-zinc-800 p-10 rounded-[40px] shadow-xl border border-gray-100 dark:border-zinc-700 text-center space-y-6 hover:translate-y-[-10px] transition-all duration-300">
+                            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary">
+                                <span className="material-icons-round text-4xl">verified</span>
                             </div>
-                            <div className="p-6 bg-white dark:bg-zinc-800 rounded-3xl shadow-sm">
-                                <div className="text-3xl font-bold text-primary mb-1">100%</div>
-                                <div className="text-sm text-gray-400">صناعة يدوية</div>
+                            <div className="space-y-4">
+                                <h3 className="text-2xl font-black text-accent-brown dark:text-white">جودة عالية</h3>
+                                <p className="text-gray-500 dark:text-gray-400 leading-relaxed">أستخدم أجود الخامات وأفضل التقنيات لضمان منتجات بأعلى معايير الجودة</p>
+                            </div>
+                        </div>
+
+                        <div className="bg-white dark:bg-zinc-800 p-10 rounded-[40px] shadow-xl border border-gray-100 dark:border-zinc-700 text-center space-y-6 hover:translate-y-[-10px] transition-all duration-300">
+                            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary">
+                                <span className="material-icons-round text-4xl">diamond</span>
+                            </div>
+                            <div className="space-y-4">
+                                <h3 className="text-2xl font-black text-accent-brown dark:text-white">تصاميم فريدة</h3>
+                                <p className="text-gray-500 dark:text-gray-400 leading-relaxed">أبتكر تصاميم خاصة ومميزة لكل منتج لضمان حصولك على قطعة فنية لا تتكرر</p>
+                            </div>
+                        </div>
+
+                        <div className="relative bg-white dark:bg-zinc-800 p-10 rounded-[40px] shadow-xl border border-gray-100 dark:border-zinc-700 text-center space-y-6 hover:translate-y-[-10px] transition-all duration-300">
+                            <div className="absolute -top-12 -left-4 w-24 h-24 -rotate-12 z-20 pointer-events-none">
+                                <img src="/beavers/Image-7.png" alt="Passion beaver" className="w-full h-auto drop-shadow-md" />
+                            </div>
+                            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary">
+                                <span className="material-icons-round text-4xl">favorite</span>
+                            </div>
+                            <div className="space-y-4">
+                                <h3 className="text-2xl font-black text-accent-brown dark:text-white">شغف الحرفة</h3>
+                                <p className="text-gray-500 dark:text-gray-400 leading-relaxed">كل قطعة أصنعها بيدي تحمل روحي وقصة فريدة من الإبداع والإتقان</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Delivery & Pickup Section */}
+            <section className="bg-[#FFF9F6] dark:bg-zinc-950 py-24 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-48 opacity-20 pointer-events-none -translate-x-10 -translate-y-10 group">
+                    <img src="/beavers/Image-13.png" alt="" className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700" />
+                </div>
+                <div className="absolute top-0 right-0 w-48 opacity-20 pointer-events-none translate-x-10 -translate-y-10 group">
+                    <img src="/beavers/Image-8.png" alt="" className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700" />
+                </div>
+
+                <div className="container mx-auto px-4 relative z-10">
+                    <div className="flex flex-col items-center mb-16 text-center">
+                        <div className="relative inline-block mb-4">
+                            <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-20 h-20 z-10 pointer-events-none">
+                                <img src="/beavers/Image-3.png" alt="Delivery beaver" className="w-full h-auto drop-shadow-sm" />
+                            </div>
+
+                            <div className="bg-[#F9E6E2] dark:bg-zinc-800/80 px-12 py-4 rounded-[40px] shadow-sm border border-white/20 relative z-0 mt-8">
+                                <h2 className="text-3xl md:text-4xl font-black text-accent-brown dark:text-white">
+                                    خيارات <span className="text-primary">الاستلام و التوصيل</span>
+                                </h2>
+                            </div>
+                        </div>
+                        <p className="mt-4 text-gray-500 dark:text-gray-400 max-w-lg mx-auto font-medium">اختر الطريقة الأكثر ملاءمة لاستلام كنوزك المصنوعة يدوياً</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                        <div className="relative group">
+                            <div className="absolute -top-12 -right-4 w-24 h-24 z-20 pointer-events-none group-hover:scale-110 transition-transform">
+                                <img src="/beavers/Image-10.png" alt="Delivery" className="w-full h-auto drop-shadow-md" />
+                            </div>
+                            <div className="bg-white dark:bg-zinc-800 p-10 rounded-[40px] shadow-xl border border-gray-100 dark:border-zinc-700 text-right flex flex-col items-end gap-4 hover:shadow-2xl transition-shadow duration-500">
+                                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+                                    <span className="material-icons-round text-3xl">local_shipping</span>
+                                </div>
+                                <h3 className="text-2xl font-black text-accent-brown dark:text-white">توصيل منزلي</h3>
+                                <p className="text-gray-500 dark:text-gray-400 leading-relaxed">نوصل كنوزك المصنوعة يدوياً مباشرة إلى عتبة بابك بكل عناية واهتمام.</p>
+                                <div className="pt-4 mt-auto w-full border-t border-gray-50 dark:border-zinc-700">
+                                    <span className="text-sm font-bold text-primary italic">2-5 أيام عمل</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="relative group">
+                            <div className="absolute -top-12 -left-4 w-24 h-24 z-20 pointer-events-none group-hover:scale-110 transition-transform -scale-x-100">
+                                <img src="/beavers/Image-7.png" alt="Pickup" className="w-full h-auto drop-shadow-md" />
+                            </div>
+                            <div className="bg-white dark:bg-zinc-800 p-10 rounded-[40px] shadow-xl border border-gray-100 dark:border-zinc-700 text-right flex flex-col items-end gap-4 hover:shadow-2xl transition-shadow duration-500">
+                                <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary">
+                                    <span className="material-icons-round text-3xl">storefront</span>
+                                </div>
+                                <h3 className="text-2xl font-black text-accent-brown dark:text-white">استلام محلي</h3>
+                                <p className="text-gray-500 dark:text-gray-400 leading-relaxed">قم بزيارة ورشتنا واستلم طلبك شخصياً. احصل على نظرة من وراء الكواليس حيث يحدث السحر!</p>
+                                <div className="pt-4 mt-auto w-full border-t border-gray-50 dark:border-zinc-700">
+                                    <span className="text-sm font-bold text-secondary italic">متاح في نفس اليوم</span>
+                                </div>
                             </div>
                         </div>
                     </div>
