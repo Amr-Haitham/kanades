@@ -230,7 +230,7 @@ const HomePage: React.FC<HomePageProps> = ({ onAddToCart }) => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-0">
-                    {PRODUCTS.map(product => (
+                    {PRODUCTS.slice(0, 4).map(product => (
                         <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
                     ))}
                 </div>

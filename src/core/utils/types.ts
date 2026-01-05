@@ -17,12 +17,11 @@ export interface CartItem extends Product {
 
 export type Category =
     | "all"
-    | "mandala"
-    | "wood"
-    | "gift-wrap"
-    | "trunk-art"
-    | "costumes"
-    | "custom";
+    | "medals"
+    | "decoration-gifts"
+    | "painting-arts"
+    | "paperwork"
+    | "tableaux";
 
 export interface NavItem {
     label: string;

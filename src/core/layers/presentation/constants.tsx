@@ -2,49 +2,168 @@
 import { Product, NavItem } from '@/core/utils/types';
 
 export const PRODUCTS: Product[] = [
+    // فئة: الميداليات
     {
         id: "1",
-        name: "لوحة الماندالا الذهبية",
-        category: "mandala",
-        price: 200,
-        description: "لوحة فنية فريدة تجمع بين ألوان الطبيعة الدافئة والتفاصيل الدقيقة لفن الماندالا. مصنوعة يدوياً بحب.",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBqzIg7j4WDEIAr5GGaC9mbskMA8HPSjBrBW9fkP86ULot9nYcvUMYyUfip9ankLqOYAhnrRwooXW6f3hyDO-UPR1L-mJ9cr7coD0ZlxvuMwlXp8FgzvEnEp_gTv4MRjbCfuDKp2wiWmSU8wOKjBFXRpbDz1fVOBwispLEDAYUQ2yK9xcBeIq2MtUjBokSJPDS1Es2xJnAdFnlnqI2X2c3Qfb9kjM5upMHXlzr3jnUsQqxkh8uCKBj4yAhNgF5D52yYaBPRhEVC_Nh9",
-        rating: 5.0,
-        reviews: 900,
-        tags: ["فنون الماندالا", "يدوي"]
+        name: "ميدالية معدنية",
+        category: "medals",
+        price: 150,
+        description: "ميدالية معدنية بتصميم مخصص حسب الطلب، مثالية للمناسبات الرياضية والتكريم.",
+        image: "/products/mandala-1.png",
+        rating: 4.9,
+        reviews: 85,
+        tags: ["ميداليات", "معدن", "تصميم مخصص"]
     },
     {
         id: "2",
-        name: "تغليف هدايا راقي",
-        category: "gift-wrap",
-        price: 75,
-        description: "تغليف هدايا يدوي يعطي طابعاً خاصاً ومميزاً لكل مناسبة، نستخدم أجود أنواع الورق والخيوط الطبيعية.",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB6PnoHAhEduKMw58YpB9J3gAceX6O05XGr1WnHnKP2OBh6QdQqMycKoGb7hOjRBKGzVBSIiC7qCttiSI_Of9HRqJv2Bbe4k6Z_va4L2-_z2XCg1IQ3fMjEHSOIpPoTYI1c-pmxwImFoYABjLT8ZbeXnqkCF0MgGlP-pHeyb955f2zyn9WBMEm4u5X0l6JM7bqAugnrOkgIwWXRhMquJlSKRFLd4DUDKExZoJ06eORfW3WxPSOFuzV7jZCPwC1uz_UqhcitIvaVPtAq",
-        rating: 4.8,
+        name: "ميدالية بلاستيكية",
+        category: "medals",
+        price: 50,
+        description: "ميدالية بلاستيكية عالية الجودة بتصميم مخصص، خفيفة الوزن ومناسبة للأطفال.",
+        image: "/products/mandala-2.png",
+        rating: 4.7,
         reviews: 120,
-        tags: ["تغليف", "هدايا"]
+        tags: ["ميداليات", "بلاستيك", "تصميم مخصص"]
     },
     {
         id: "3",
-        name: "فنون الألواح الخشبية",
-        category: "wood",
-        price: 350,
-        description: "قطع ديكور خشبية منحوتة بعناية لتضفي لمسة ريفية دافئة على منزلك.",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBDuBcGl_3N658FenNQG47_DP_N8EGPSnHbAjD5-p8fRYltybVLRh2WSxi3MMUmLksp-DrQTTzq7eBQ29sPAatA7cQB9l-Igqx-7lLTPL6WYphdH09kOAsu5IPDClgNTZTRBz5ANYVdqQmYDbmBlvJ34izNkZFzWKlyG_CB5_2iQM0-LBVsOQu2gOIdly7xI11JrccYZtuClHHacoOG_BVRcEsKJT_qCnjF0_vFsCxippk50Zuwk2Ev2FBAHDsz_JXN-OHdZElaSMra",
-        rating: 4.9,
-        reviews: 45,
-        tags: ["خشب", "ديكور"]
+        name: "ميدالية قماشية",
+        category: "medals",
+        price: 75,
+        description: "ميدالية قماشية مطرزة بتصميم فريد، ناعمة الملمس ومريحة للارتداء.",
+        image: "/products/mandala-3.png",
+        rating: 4.8,
+        reviews: 95,
+        tags: ["ميداليات", "قماش", "تطريز"]
     },
+
+    // فئة: الزينة والهدايا
     {
         id: "4",
-        name: "زي الجزة للأطفال",
-        category: "costumes",
+        name: "تغليف هدايا راقٍ",
+        category: "decoration-gifts",
+        price: 80,
+        description: "تغليف هدايا راقٍ ومميز باستخدام أجود الخامات، يضفي لمسة أنيقة على هداياك.",
+        image: "/products/gift-wrap-1.png",
+        rating: 4.9,
+        reviews: 150,
+        tags: ["تغليف", "هدايا", "أناقة"]
+    },
+    {
+        id: "5",
+        name: "باقة ورود صناعية مصنوعة يدويًا",
+        category: "decoration-gifts",
+        price: 120,
+        description: "باقة ورود صناعية مصنوعة يدويًا بعناية فائقة، تدوم طويلاً وتضفي جمالاً دائماً.",
+        image: "/products/decoration-wreath.png",
+        rating: 5.0,
+        reviews: 78,
+        tags: ["ورود", "صناعي", "يدوي"]
+    },
+
+    // فئة: فنون الرسم
+    {
+        id: "6",
+        name: "الرسم على الجذوع الخشبية",
+        category: "painting-arts",
         price: 250,
-        description: "أزياء تنكرية للأطفال مصنوعة من خامات ناعمة ومريحة للعب والمرح.",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCmfNW4Vv2w77kqR03-jZXWeLZNU_rli5Pz8FdwCRrJNzDNwnKlfjemLsmyKOTfrYRjDh_8S3IYO9UkkxQH0LuHxVyyrLN_J4he71KW8nJCs07C3d1x7xuXzo86bmQR5qHRvu8R9umcW1KSbLr9uWaBGsd3NTYXfI_5q-Fr0_mE8bMPUGiccCymCyT-toCuwfmafmUrpYSdPP-cryFhlYl_g3Y7YxpvObsMELLVN90mHJH-guKcUFMjthyhjiR7SElc-FMpGlc2YD9O",
+        description: "رسومات فنية فريدة على الجذوع الخشبية الطبيعية، تضيف لمسة طبيعية وفنية لمنزلك.",
+        image: "/products/trunk-art-mosque.png",
+        rating: 4.9,
+        reviews: 62,
+        tags: ["رسم", "خشب", "فن"]
+    },
+    {
+        id: "7",
+        name: "تصاميم طباعة على التيشيرتات",
+        category: "painting-arts",
+        price: 100,
+        description: "تصاميم طباعة مخصصة على التيشيرتات بجودة عالية وألوان ثابتة، عبّر عن شخصيتك.",
+        image: "/products/tshirt-tiger.png",
+        rating: 4.8,
+        reviews: 145,
+        tags: ["طباعة", "تيشيرت", "تصميم مخصص"]
+    },
+
+    // فئة: الورقيات
+    {
+        id: "8",
+        name: "دفتر ملاحظات بتصميم مخصص",
+        category: "paperwork",
+        price: 60,
+        description: "دفتر ملاحظات بتصميم مخصص حسب الطلب، مثالي للهدايا الشخصية والاستخدام اليومي.",
+        image: "/products/notebook-purple.png",
         rating: 4.7,
-        reviews: 88,
-        tags: ["أطفال", "تنكري"]
+        reviews: 110,
+        tags: ["ورقيات", "دفاتر", "تصميم مخصص"]
+    },
+    {
+        id: "9",
+        name: "ملاحظات لاصقة",
+        category: "paperwork",
+        price: 25,
+        description: "ملاحظات لاصقة بتصاميم جذابة وألوان متعددة، مثالية للتنظيم والتذكير.",
+        image: "/products/gift-wrap-2.png",
+        rating: 4.6,
+        reviews: 200,
+        tags: ["ورقيات", "ملاحظات لاصقة", "تنظيم"]
+    },
+    {
+        id: "10",
+        name: "ملصقات",
+        category: "paperwork",
+        price: 30,
+        description: "ملصقات مطبوعة بتصاميم مبتكرة وجذابة، أضف لمسة شخصية لأغراضك.",
+        image: "/products/bookmark-carrot.png",
+        rating: 4.8,
+        reviews: 180,
+        tags: ["ورقيات", "ملصقات", "تصميم"]
+    },
+    {
+        id: "11",
+        name: "فواصل كتب",
+        category: "paperwork",
+        price: 20,
+        description: "فواصل كتب أنيقة بتصاميم متنوعة، رفيق مثالي لمحبي القراءة.",
+        image: "/products/bookmark-grape.png",
+        rating: 4.9,
+        reviews: 155,
+        tags: ["ورقيات", "فواصل كتب", "قراءة"]
+    },
+    {
+        id: "12",
+        name: "كروت مناسبات",
+        category: "paperwork",
+        price: 15,
+        description: "كروت تهنئة مخصصة لجميع المناسبات: مولود جديد، تخرج، زواج، وأي مناسبة خاصة. تصاميم راقية تعبر عن أجمل المشاعر.",
+        image: "/products/gift-wrap-3.png",
+        rating: 4.9,
+        reviews: 420,
+        tags: ["كروت", "مناسبات", "تهنئة", "مولود", "تخرج", "زواج"]
+    },
+
+    // فئة: التابلوهات
+    {
+        id: "13",
+        name: "تابلوه خشبي مع المسامير (String Art)",
+        category: "tableaux",
+        price: 300,
+        description: "تابلوه فني مصنوع بتقنية String Art على لوح خشبي، قطعة فنية فريدة لتزيين منزلك.",
+        image: "/products/trunk-art-flowers.png",
+        rating: 5.0,
+        reviews: 70,
+        tags: ["تابلوه", "خشب", "String Art"]
+    },
+    {
+        id: "14",
+        name: "تابلوه خشبي مع طباعة",
+        category: "tableaux",
+        price: 200,
+        description: "تابلوه خشبي مطبوع بتصميم عالي الجودة، يضيف لمسة عصرية وأنيقة لديكور منزلك.",
+        image: "/products/embroidery-hoop.png",
+        rating: 4.9,
+        reviews: 85,
+        tags: ["تابلوه", "خشب", "طباعة"]
     }
 ];
 

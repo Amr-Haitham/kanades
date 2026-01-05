@@ -16,12 +16,11 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onAddToCart }) => {
 
     const categoryLabels: Record<Category, string> = {
         all: "الكل",
-        mandala: "ماندالا",
-        wood: "خشب",
-        "gift-wrap": "تغليف هدايا",
-        "trunk-art": "فن الصناديق",
-        costumes: "أزياء",
-        custom: "مخصص"
+        medals: "الميداليات",
+        "decoration-gifts": "الزينة والهدايا",
+        "painting-arts": "فنون الرسم",
+        paperwork: "الورقيات",
+        tableaux: "التابلوهات"
     };
 
     return (
@@ -53,7 +52,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onAddToCart }) => {
 
             {/* Filter Tabs */}
             <div className="flex flex-wrap justify-center gap-4 mb-12">
-                {(["all", "mandala", "wood", "gift-wrap", "costumes"] as Category[]).map((cat) => (
+                {(["all", "medals", "decoration-gifts", "painting-arts", "paperwork", "tableaux"] as Category[]).map((cat) => (
                     <button
                         key={cat}
                         onClick={() => setFilter(cat)}
