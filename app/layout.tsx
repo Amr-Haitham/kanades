@@ -7,8 +7,8 @@ import { ToastProvider } from "@/core/layers/presentation/providers/ToastProvide
 import Layout from "@/core/layers/presentation/components/Layout";
 
 export const metadata: Metadata = {
-  title: "قنادس - منتجات يدوية أصيلة",
-  description: "اكتشف مجموعة فريدة من المنتجات اليدوية الأصيلة المصنوعة بحب وإتقان",
+  title: "قنادس | Qanades - منتجات يدوية أصيلة",
+  description: "اكتشف مجموعة فريدة من المنتجات اليدوية الأصيلة المصنوعة بحب وإتقان. أفضل الهدايا اليدوية على الإطلاق!",
 };
 
 export default function RootLayout({

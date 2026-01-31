@@ -109,17 +109,13 @@ const CartPage: React.FC<CartPageProps> = ({ cart, onUpdateQty, onRemove }) => {
                                 <span>{total.toFixed(2)} EGP</span>
                             </div>
                         </div>
-                        <button
-                            onClick={handleSendOnWhatsApp}
-                            disabled={cart.length === 0}
-                            className="w-full bg-green-500 text-white font-bold py-4 rounded-2xl hover:bg-green-600 transition shadow-lg mb-4 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                        <Link
+                            href={cart.length === 0 ? "#" : "/checkout"}
+                            className={`w-full bg-primary text-white font-bold py-4 rounded-2xl hover:bg-orange-600 transition shadow-lg mb-4 flex items-center justify-center gap-2 ${cart.length === 0 ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
                         >
-                            <span className="material-icons-round">chat</span>
-                            إرسال الطلب عبر واتساب
-                        </button>
-                        {/* <button className="w-full bg-primary text-white font-bold py-4 rounded-2xl hover:bg-orange-600 transition shadow-lg mb-4">
-                            إتمام الطلب
-                        </button> */}
+                            <span className="material-icons-round">shopping_cart_checkout</span>
+                            متابعة الطلب
+                        </Link>
                         <Link href="/products" className="w-full bg-gray-50 dark:bg-zinc-700 text-gray-600 dark:text-gray-200 font-bold py-4 rounded-2xl hover:bg-gray-100 transition block text-center">
                             متابعة التسوق
                         </Link>

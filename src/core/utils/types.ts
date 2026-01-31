@@ -17,11 +17,13 @@ export interface CartItem extends Product {
 
 export type Category =
     | "all"
-    | "medals"
-    | "decoration-gifts"
-    | "painting-arts"
-    | "paperwork"
-    | "tableaux";
+    | "ورقيات"
+    | "تابلوهات"
+    | "كانڤاس"
+    | "جذوع الخشب"
+    | "مرايات"
+    | "ورد ستان"
+    | "مجسمات متنوعة";
 
 export interface NavItem {
     label: string;
