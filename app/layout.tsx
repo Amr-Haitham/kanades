@@ -19,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <head>
+        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
         <link
           href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
           rel="stylesheet"
